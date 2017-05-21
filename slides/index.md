@@ -4,6 +4,12 @@
 - theme : night
 - transition : default
 
+### Наиболее ликвидные криптовалюты
+
+<img src="images/Currencies.png" style="background: black;" />
+
+***
+
 
 ### Bitcoin 
 
@@ -57,9 +63,11 @@
 
 ***
 
-### Наиболее ликвидные криптовалюты
+### Крупнейшие держатели биткоинов
 
-<img src="images/Currencies.png" style="background: black;" />
+<img src="images/top12btc.png" style="background: black;" />
+
+
 
 ***
 
@@ -88,7 +96,12 @@
 
 
 ***
+### Биржевые инструменты
 
+#### Bitcoin Investment Trust
+#### Bitcoin Tracker One
+
+***
 
 #### Bitcoin Investment Trust
 
@@ -114,6 +127,80 @@
 * AUM $232.62M‡
 * Shares Outstanding  1,868,700
 * Bitcoin per Share   0.09306347
+
+
+
+---
+
+#### Bitcoin Investment Trust stock chart
+
+<img src="images/gbtc_stock.png" style="background: black;" />
+
+
+--- 
+
+#### Инвестиционная идея
+
+- Исторически надбавка GBTC над стоимостью чистых активов достигала более 50%.
+- В случае если SEC не утвердит ETF на биткоин, вырастет надбавка GBTC над стоимостью чистых активов.
+- В случае утверждения эмиссии ETF фонда, цена на биткоин значительно вырастет
+
+***
+
+### Bitcoin Tracker One
+
+Open-end Exchange Traded Note incorporated in Sweden. The ETN is denominated in SEK and provides investors with access to the returns of the underlying asset, US Dollar per bitcoin, less investor fees. The average USD exchange rate of bitcoin from the exchanges:- Bitfinex, Bitstamp and GDAX provides the underlying reference price which is converted into SEK.
+
+Both trackers are designed to mirror the return of the underlying asset, U.S. dollar (USD) per bitcoin. The product is an exchange traded note designed to track the movement of the underlying asset after fees.
+
+---
+
+##### REFERENCE PRICE
+
+BTC/USD is traded on a large number of bitcoin exchanges and the average price of the most liquid exchanges provides the underlying reference price for the product as specified in the prospectus.
+
+XBT Provider do not have any market risk. The company always hold bitcoins equivalent to the value of ETNs issued.
+
+---
+
+#### TECHNICAL DATA
+
+* Issuer: XBT Provider AB (publ)
+* Underlying asset: Bitcoin nominated in USD
+* Leverage: 1:1
+* Expiry date: Open-ended
+* Market maker: Mangold Fondkommission AB
+* Exchange: Nasdaq (Stockholm)
+* Prospectus approved by: Swedish FSA
+* Annual fee: 2.5%
+* Clearing house: Euroclear Sweden AB
+* Product type: Certificate
+* Bloomberg: COINXBT SS EQUITY
+
+---
+
+#### Нота котируется в двух валютах
+
+##### SEK
+
+* Instrument Currency: SEK
+* ISIN Code: SE0007126024
+* Multiplicator: 0.005
+
+
+##### EUR
+
+* Instrument Currency: EUR
+* ISIN Code: SE0007525332
+* Multiplicator: 0.05
+
+---
+
+Bitcoin Tracker One
+
+<img src="images/tracker_stock_chart.png" style="background: black;" />
+
+
 
 ***
 

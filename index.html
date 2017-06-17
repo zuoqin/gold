@@ -1,0 +1,252 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Presentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="unkown">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="//code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="//code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/deedle.css" />
+    <link type="text/css" rel="stylesheet" href="css/custom.css" />
+    <script src="fsharp.formatting/styles/tips.js" type="text/javascript"></script>
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/fsreveal.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script language="javascript" type="text/javascript">
+        function init()
+        {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+        }
+        window.addEventListener("load", init, false);
+    </script>
+</head>
+<body>
+    <div class="reveal">
+        
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section author="Alexey Zorchenkov" description="Презентация клиентам Сбербанк Private Bank по рыгку золота" theme="night" title="Инвестиции в золото" transition="default">
+<h3>Мировая добыча золота</h3>
+<ul>
+<li>Пик добычи придется на 2019 год и далее будет снижаться</li>
+<li>Объем разведанного золота упал на 85% за последние 10 лет</li>
+<li>Менеджмент вынужден заниматься сделками слияния и поглощения для компенсации снижающихся резервов</li>
+<li>Разведка новых месторождений становится все более дорогостоящей в то время как компании снижают затраты на разработку</li>
+</ul>
+<img src="images/goldminersoutput.png" style="background: black;" />
+</section>
+<section >
+<section >
+<h3>Bitcoin</h3>
+<h6>Биткойны существуют только в виде записей в распределённой базе (Blockchain), в которой в общедоступном открытом (нешифрованном) виде хранятся все транзакции, с указанием биткойн-адресов отправителей/получателей, но без информации о реальном владельце этих адресов. В базе нет отдельных записей о текущем количестве биткойнов у какого-либо владельца. Лишь на основании цепочек транзакций становится понятным текущее количество биткойнов, связанных с тем или иным биткойн-адресом. То есть можно увидеть, что на адрес поступил 1 биткойн, а по другой транзакции на этот же адрес поступило 2 биткойна, третья транзакция отправила с этого адреса 1 биткойн. Но в базе не хранится отдельной записи, сколько всего сейчас биткойнов числится за данным адресом — просто предоставляется возможность в любой момент это легко подсчитать. Такие подсчёты автоматически делают клиентские программы, пользователь может и не замечать раздробленности информации.</h6>
+</section>
+<section >
+<h3>Ключи</h3>
+<ul>
+<li>Пара ключей и биткойн-адрес на бумаге, подготовлены сервисом bitaddress.org. Каждый пользователь системы может генерировать неограниченное количество пар ключей (алгоритм ECDSA с параметром secp256k1). Размер закрытого ключа — 256 бит, а соответствующего ему открытого ключа — 512 бит.</li>
+<li>Основное использование ключей — создание биткойн-адреса и подтверждение правомочности формирования транзакций.</li>
+<li>Создание новой пары ключей автономно и не требует соединения с сетью или Интернетом.</li>
+<li>Хранить ключи можно на любом носителе, не только на карте памяти, но и в бумажном виде. Существуют онлайн кошельки, например, Blockchain.info, Circle Snapcard или Coinbase, которые достаточно просты в использовании. Но проблемы с сайтом такого сервиса могут приводить к потерям.</li>
+</ul>
+</section>
+<section >
+<h3>Адресация</h3>
+<ul>
+<li>Адреса создаются при помощи генерации асимметричной пары криптографических ключей. Можно иметь неограниченное число адресов, создавая их по своему желанию. Каждому возможному адресу соответствует баланс, выраженный в биткойнах. Все адреса с ненулевым балансом записаны в децентрализованную цепочку блоков транзакций, защищённую от изменений. При создании адреса, его баланс всегда нулевой и может быть пополнен либо отправкой биткойнов с других адресов, либо путём создания новых биткойнов и комиссионных сборов за счёт майнинга.</li>
+<li>Если секретный ключ утерян, биткойн-сеть не примет никаких других доказательств права собственности. Создать для существующего адреса новый ключ не получится, так как уникальной паре ключей всегда соответствует свой адрес. Биткойны, связанные с адресом, для которого нет закрытого ключа, становятся недоступными, фактически утрачиваются.</li>
+</ul>
+</section>
+<section >
+<h3>Конфиденциальность</h3>
+<p>Сравнение традиционной модели приватности с моделью приватности в системе Биткойн. Традиционная модель достигает секретности путём ограничения доступа к информации. О сделке могут знать только две стороны и банк. В системе «Биткойн» все транзакции публичны, хранятся в открытом нешифрованном виде, а секретность достигается отсутствием персонификации владельцев адресов. Для конфиденциальности рекомендуется создавать отдельные адреса для каждой транзакции. Это осложняет сопоставление адресов с одним владельцем.</p>
+</section>
+<section >
+<h3>Транзакции</h3>
+<h6>Упрощённая структура последовательных транзакций с одним входом и одним выходом Биткойны могут быть переданы любому, кто сообщит корректный биткойн-адрес или открытый ключ. Минимальная передаваемая величина 10^(−8) биткойнов. Для передачи биткойнов текущий владелец создаёт новую транзакцию, которая помимо указаний о количестве передаваемых биткойнов содержит подписанный инициатором хеш предыдущей транзакции, по которой биткойны были получены. Предыдущая транзакция становится «входом» текущей транзакции. Также указывается публичный ключ или биткойн-адрес нового получателя («выход»). Транзакция широковещательным запросом по открытым каналам без шифрования отправляется в сеть. Остальные узлы сети, прежде чем принять транзакцию к обработке, проверяют подписи. Правильность подписи свидетельствует, что инициатор действительно является владельцем секретного ключа для адреса «выхода».</h6>
+<h6>Транзакции поддерживают произвольное количество «входов» (ссылок на предыдущие транзакции, в том числе в пользу разных адресов) и «выходов» (указания о получателях). Значения со всех «входов» суммируются, и сумма распределяется по «выходам»</h6>
+</section>
+<section >
+<h3>Майнинг</h3>
+<p>Выпуск новых биткойнов децентрализован, не зависит от какого-либо регулирующего органа, объём эмиссии известен заранее. Стандартная порция новых биткойнов прибавляется к сумме комиссий из транзакций, включённых в очередной блок. Итоговую сумму в качестве вознаграждения получает тот, кто добавил очередной блок в базу транзакций.</p>
+<p>Общий объём эмиссии биткойнов ограничен, так как является суммой членов убывающей геометрической прогрессии, и не превысит 21 миллион.</p>
+</section>
+</section>
+<section >
+<h3>Крупнейшие держатели биткоинов</h3>
+<img src="images/top12btc.png" style="background: black;" />
+</section>
+<section >
+<section >
+<h4>Риски</h4>
+<h3>Монеты Bitcoin</h3>
+<p>½ Bitcoin</p>
+<img src="images/1half_btc_1.png" style="background: black;" />
+<img src="images/1half_btc_2.png" style="background: black;" />
+</section>
+<section >
+<p>½ Bitcoin, 20 монет</p>
+<img src="images/20btc_half.png" style="background: black;" />
+</section>
+<section >
+<p>1 Bitcoin</p>
+<img src="images/1btc.png" style="background: black;" />
+</section>
+</section>
+<section >
+<h3>Биржевые инструменты</h3>
+<h4>Bitcoin Investment Trust</h4>
+<h4>Bitcoin Tracker One</h4>
+</section>
+<section >
+<section >
+<h4>Bitcoin Investment Trust</h4>
+<ul>
+<li>First publicly quoted* securities solely invested in and deriving value from the price of bitcoin. The BIT enables investors to gain exposure to the price movement of bitcoin through a traditional investment vehicle, without the challenges of buying, storing, and safekeeping bitcoins.</li>
+<li>Publicly quoted on OTCQX® under the Alternative Reporting Standards</li>
+<li>Titled, auditable ownership through a traditional investment vehicle: shares titled in the investors name.</li>
+<li>Publicly quoted: eligible shares of the Bitcoin Investment Trust are quoted on OTCQX® under the symbol: GBTC, making it possible to buy or sell shares continuously through the trading day at prices established by the market.</li>
+</ul>
+</section>
+<section >
+<h4>Bitcoin Investment Trust (continue)</h4>
+<ul>
+<li>Supported by a network of trusted service providers: Davis Polk &amp; Wardwell LLP serves as legal counsel to the Sponsor of the Bitcoin Investment Trust. Financial statements for the Bitcoin Investment Trust are audited annually by Friedman LLP.</li>
+<li>
+<p>Robust security and storage: The Bitcoin Investment Trust’s assets are stored with Xapo, Inc., as Custodian, in deep cold storage vaults. Bitcoin stored in the Xapo Vaults reside on multisignature addresses, the private keys for which are protected by intense cryptographic, physical and process security.
+<br/></p>
+</li>
+<li>ISIN    US09173T1088</li>
+<li>Bloomberg   XBTFUND</li>
+<li>Inception Date  9/25/2013</li>
+<li>Annual Fee  2%</li>
+<li>AUM $232.62M‡</li>
+<li>Shares Outstanding  1,868,700</li>
+<li>Bitcoin per Share   0.09306347</li>
+</ul>
+</section>
+<section >
+<h4>Bitcoin Investment Trust stock chart</h4>
+<img src="images/gbtc_stock.png" style="background: black;" />
+</section>
+<section >
+<h4>Инвестиционная идея</h4>
+<ul>
+<li>Исторически надбавка GBTC над стоимостью чистых активов достигала более 50%.</li>
+<li>В случае если SEC не утвердит ETF на биткоин, вырастет надбавка GBTC над стоимостью чистых активов.</li>
+<li>В случае утверждения эмиссии ETF фонда, цена на биткоин значительно вырастет</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h3>Bitcoin Tracker One</h3>
+<p>Open-end Exchange Traded Note incorporated in Sweden. The ETN is denominated in SEK and provides investors with access to the returns of the underlying asset, US Dollar per bitcoin, less investor fees. The average USD exchange rate of bitcoin from the exchanges:- Bitfinex, Bitstamp and GDAX provides the underlying reference price which is converted into SEK.</p>
+<p>Both trackers are designed to mirror the return of the underlying asset, U.S. dollar (USD) per bitcoin. The product is an exchange traded note designed to track the movement of the underlying asset after fees.</p>
+</section>
+<section >
+<h5>REFERENCE PRICE</h5>
+<p>BTC/USD is traded on a large number of bitcoin exchanges and the average price of the most liquid exchanges provides the underlying reference price for the product as specified in the prospectus.</p>
+<p>XBT Provider do not have any market risk. The company always hold bitcoins equivalent to the value of ETNs issued.</p>
+</section>
+<section >
+<h4>TECHNICAL DATA</h4>
+<ul>
+<li>Issuer: XBT Provider AB (publ)</li>
+<li>Underlying asset: Bitcoin nominated in USD</li>
+<li>Leverage: 1:1</li>
+<li>Expiry date: Open-ended</li>
+<li>Market maker: Mangold Fondkommission AB</li>
+<li>Exchange: Nasdaq (Stockholm)</li>
+<li>Prospectus approved by: Swedish FSA</li>
+<li>Annual fee: 2.5%</li>
+<li>Clearing house: Euroclear Sweden AB</li>
+<li>Product type: Certificate</li>
+<li>Bloomberg: COINXBT SS EQUITY</li>
+</ul>
+</section>
+<section >
+<h4>Нота котируется в двух валютах</h4>
+<h5>SEK</h5>
+<ul>
+<li>Instrument Currency: SEK</li>
+<li>ISIN Code: SE0007126024</li>
+<li>Multiplicator: 0.005</li>
+</ul>
+<h5>EUR</h5>
+<ul>
+<li>Instrument Currency: EUR</li>
+<li>ISIN Code: SE0007525332</li>
+<li>Multiplicator: 0.05</li>
+</ul>
+</section>
+<section >
+<p>Bitcoin Tracker One</p>
+<img src="images/tracker_stock_chart.png" style="background: black;" />
+</section>
+</section>
+<section >
+<h3>Thank you!</h3>
+</section>
+
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // Add the nohighlight class and data-noescape attribute to code elements that have already been formatted by FSharp.Formatting
+        $('pre.highlighted code').addClass('nohighlight').attr('data-noescape', '');
+
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function () { return !!document.body.classList; } }
+            ]
+        });
+
+    </script>
+</body>
+</html>
+

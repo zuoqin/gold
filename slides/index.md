@@ -181,7 +181,7 @@
 * перекупленный
 * эйфорийный настрой инвесторов
 
-<img src="images/sp500fv.png" style="background: black;height: 600px" />
+<img src="images/sp500fv.png" style="background: black;height: 500px" />
 
 ---
 
@@ -189,7 +189,7 @@
 
 
 
-<img src="images/eqfairval.png" style="background: black;height: 600px" />
+<img src="images/eqfairval.png" style="background: black;height: 500px" />
 
 
 ***

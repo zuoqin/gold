@@ -4,10 +4,6 @@
 - theme : night
 - transition : default
 
-### ttt
-
-***
-
 
 ### Почему золото и почему сейчас? 
 

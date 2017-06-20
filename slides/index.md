@@ -1,258 +1,229 @@
-- title : React Native with F#
-- description : Introduction to React Native with F#
-- author : Steffen Forkmann
+﻿- title : Инвестиции в золото
+- description : Презентация клиентам Сбербанк Private Bank по рыгку золота
+- author : Alexey Zorchenkov
 - theme : night
 - transition : default
 
-***
 
-## React Native with F#
+### Почему золото и почему сейчас? 
 
-<br />
-<br />
-
-### Modern mobile app development
-
-<br />
-<br />
-Steffen Forkmann - [@sforkmann](http://www.twitter.com/sforkmann)
+* Отсутствие открытия новых месторождений, постоянный рост стоимости добычи, более 50% всех золотодобывающих компаний имеют даже при отсутствии капиталовложений на разработку новых месторождений стоимость добычи более 1200 долл. за унцию
+* Бесконтрольный рост денежной массы со стороны ЦБ Америки, Европы, Японии, Швейцарии и Англии, дефицита бюджета (пенсионные и др. обязательства), торгового баланса в ведущих экономиках, рост систематического риска на финансовых рынках
+* Значительный инвестиционный спрос со стороны розничных клиентов: монеты, слитки, биржевые фонды, в последний квартал особо отметим спрос со стороны Европы. Значительные покупки золота на открытом и внутренних рынках со стороны ЦБ Китая, России и пр.
 
 ***
 
-### Modern mobile app development?
 
-* UI/UX
-    * "Native mobile apps"
-    * Performance
-* Tooling
-    * Hot loading
-    * IntelliSense
-* Maintainability
-    * Easy to debug
-    * Correctness
+### Мировая добыча золота
 
----
+* Пик добычи придется на 2019 год и далее будет снижаться
 
-### "Native" UI
-
- <img src="images/meter.png" style="background: transparent; border-style: none;"  width=300 />
-
----
-
-### Tooling
-
-<img src="images/hotloading.gif" style="background: transparent; border-style: none;"  />
-
-*** 
-
-### Model - View - Update
-
-#### "Elm - Architecture"
-
- <img src="images/Elm.png" style="background: white;" width=700 />
-
-
- <small>http://danielbachler.de/2016/02/11/berlinjs-talk-about-elm.html</small>
-
-
---- 
-
-### Model - View - Update
-
-    // MODEL
-
-    type Model = int
-
-    type Msg =
-    | Increment
-    | Decrement
-
-    let init() : Model = 0
-
----
-
-### Model - View - Update
-
-    // VIEW
-
-    let view model dispatch =
-        div []
-            [ button [ OnClick (fun _ -> dispatch Decrement) ] [ str "-" ]
-              div [] [ str (model.ToString()) ]
-              button [ OnClick (fun _ -> dispatch Increment) ] [ str "+" ] ]
-
----
-
-### Model - View - Update
-
-    // UPDATE
-
-    let update (msg:Msg) (model:Model) =
-        match msg with
-        | Increment -> model + 1
-        | Decrement -> model - 1
-
----
-
-### Model - View - Update
-
-    // wiring things up
-
-    Program.mkSimple init update view
-    |> Program.withConsoleTrace
-    |> Program.withReact "elmish-app"
-    |> Program.run
-
----
-
-### Model - View - Update
-
-# Demo
+<img src="images/goldminersoutput.png" style="background: black;" />
 
 ***
 
-### Sub-Components
+### Разведка новых месторождений
 
-    // MODEL
+* Объем разведанного золота упал на 85% за последние 10 лет
 
-    type Model = {
-        Counters : Counter.Model list
-    }
-
-    type Msg = 
-    | Insert
-    | Remove
-    | Modify of int * Counter.Msg
-
-    let init() : Model =
-        { Counters = [] }
-
----
-
-### Sub-Components
-
-    // VIEW
-
-    let view model dispatch =
-        let counterDispatch i msg = dispatch (Modify (i, msg))
-
-        let counters =
-            model.Counters
-            |> List.mapi (fun i c -> Counter.view c (counterDispatch i)) 
-        
-        div [] [ 
-            yield button [ OnClick (fun _ -> dispatch Remove) ] [  str "Remove" ]
-            yield button [ OnClick (fun _ -> dispatch Insert) ] [ str "Add" ] 
-            yield! counters ]
-
----
-
-### Sub-Components
-
-    // UPDATE
-
-    let update (msg:Msg) (model:Model) =
-        match msg with
-        | Insert ->
-            { Counters = Counter.init() :: model.Counters }
-        | Remove ->
-            { Counters = 
-                match model.Counters with
-                | [] -> []
-                | x :: rest -> rest }
-        | Modify (id, counterMsg) ->
-            { Counters =
-                model.Counters
-                |> List.mapi (fun i counterModel -> 
-                    if i = id then
-                        Counter.update counterMsg counterModel
-                    else
-                        counterModel) }
-
----
-
-### Sub-Components
-
-# Demo
+<img src="images/goldminersexploration.png" style="background: black;" />
 
 ***
 
-### React
+### Разведанные запасы
 
-* Facebook library for UI 
-* <code>state => view</code>
-* Virtual DOM
-
----
-
-### Virtual DOM - Initial
-
-<br />
-<br />
-
-
- <img src="images/onchange_vdom_initial.svg" style="background: white;" />
-
-<br />
-<br />
-
- <small>http://teropa.info/blog/2015/03/02/change-and-its-detection-in-javascript-frameworks.html</small>
-
----
-
-### Virtual DOM - Change
-
-<br />
-<br />
-
-
- <img src="images/onchange_vdom_change.svg" style="background: white;" />
-
-<br />
-<br />
-
- <small>http://teropa.info/blog/2015/03/02/change-and-its-detection-in-javascript-frameworks.html</small>
-
----
-
-### Virtual DOM - Reuse
-
-<br />
-<br />
-
-
- <img src="images/onchange_immutable.svg" style="background: white;" />
-
-<br />
-<br />
-
- <small>http://teropa.info/blog/2015/03/02/change-and-its-detection-in-javascript-frameworks.html</small>
-
-
-*** 
-
-### ReactNative
-
- <img src="images/ReactNative.png" style="background: white;" />
-
-
- <small>http://timbuckley.github.io/react-native-presentation</small>
+<img src="images/goldminersreserves.png" style="background: black;" />
 
 ***
 
-### Show me the code
+### Пополнение разведанных запасов
 
-*** 
+* Менеджмент вынужден заниматься сделками слияния и поглощения для компенсации снижающихся резервов
 
-### TakeAways
 
-* Learn all the FP you can!
-* Simple modular design
 
-*** 
+<img src="images/miningdeals2016.png" style="background: black;" />
 
-### Thank you!
+***
 
-* https://github.com/fable-compiler/fable-elmish
-* https://ionide.io
-* https://facebook.github.io/react-native/
+
+### Разведка новых месторождений становится все более дорогостоящей в то время как компании снижают затраты на разработку
+
+<img src="images/goldminerscapex.png" style="background: black;" />
+
+
+***
+
+### Поставки золота в Шанхае
+
+<img src="images/shanghaiwidthawals.png" style="background: black;" />
+
+
+***
+
+### Спрос на золото в Китае и Индии превышает мировую добычу
+
+<img src="images/chinaindiagolddemand.png" style="background: black;" />
+
+
+***
+
+
+
+### Динамика объема инвестиций в биржевые фонды и цены на золото
+
+<img src="images/goldetfinvestments.png" style="background: black;" />
+
+
+***
+
+### Наиболее прозрачные данные по импорту золота
+
+<img src="images/swissgoldimports.png" style="background: black;" />
+
+---
+
+### и экспорта
+
+<img src="images/swissgoldexports.png" style="background: black;" />
+
+***
+
+### Запасы золота на крупнейшей торговой площадке
+
+<img src="images/comexholdings.png" style="background: black;" />
+
+***
+
+
+### Дефицит и уникальность золота
+
+<img src="images/gold-cubes-annual.jpg" style="background: black;" />
+
+---
+
+<img src="images/gold-cubes-fort-knox.jpg" style="background: black;" />
+
+---
+
+<img src="images/gold-cubes-central-banks.jpg" style="background: black;" />
+
+---
+
+<img src="images/gold-cubes-mined.jpg" style="background: black;" />
+
+---
+
+<img src="images/gold-cubes-global-debt.jpg" style="background: black;" />
+
+---
+
+***
+
+### Альтернативы золоту
+
+***
+
+
+
+### Долговой рынок?
+
+Рост предложения
+
+<img src="images/usdebt.png" style="background: black;" />
+
+---
+
+### Снижение стоимости
+
+<img src="images/dollaringold.png" style="background: black;" />
+
+
+---
+
+### Создание нового пузыря
+
+<img src="images/cbsbalances.jpg" style="background: black;" />
+
+
+---
+
+### Один миллиард долларов
+
+<img src="images/onebillion.jpg" style="background: black;height: 600px" />
+
+---
+
+### Один триллион долларов
+
+<img src="images/onetrillion.jpg" style="background: black;height: 600px" />
+
+
+---
+
+### Государственный долг США - двадцать триллионов долларов
+
+<img src="images/twentytrillion.jpg" style="background: black;height: 600px" />
+
+
+---
+
+### Обязательства США - сто двадцать триллионов долларов
+
+<img src="images/hundredtrillion.jpg" style="background: black;height: 600px" />
+
+
+
+***
+
+### Рынок акций?
+
+* переоцененный
+* перекупленный
+* эйфорийный настрой инвесторов
+
+<img src="images/sp500fv.png" style="background: black;height: 500px" />
+
+---
+
+### По множеству показателей выше справедливой оценки более чем на 150%
+
+
+
+<img src="images/eqfairval.png" style="background: black;height: 500px" />
+
+
+***
+
+### Недвижимость?
+
+<img src="images/realestate.png" style="background: black;" />
+
+---
+
+### Индикативная стоимость жилой недвижимости к совокупному годовому доходу до налогов
+
+
+<img src="images/realestatepriceearnings.png" style="background: black;" />
+
+***
+
+
+### Инвестиционные инструменты
+
+* Сегрегированное золото:
+  * Золотые монеты, украшения
+  * Золотые мерные слитки
+
+* Обезличенное золото:
+  * Биржевые фонды
+  * Металлические счета
+  * Золотые сертификаты
+
+* Суррогаты:
+  * Акции золотодобывающих компаний
+  * Биржевые / внебиржевые Фьючерсы, опционы, CFD на золото
+
+***
+
+

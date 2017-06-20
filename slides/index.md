@@ -1,4 +1,5 @@
 ﻿- title : Инвестиции в золото
+- title : Инвестиции в золото
 - description : Презентация клиентам Сбербанк Private Bank по рыгку золота
 - author : Alexey Zorchenkov
 - theme : night
@@ -6,6 +7,7 @@
 
 
 ### Почему золото и почему сейчас? 
+### Почему золото и почему сейчас?
 
 * Отсутствие открытия новых месторождений, постоянный рост стоимости добычи, более 50% всех золотодобывающих компаний имеют даже при отсутствии капиталовложений на разработку новых месторождений стоимость добычи более 1200 долл. за унцию
 * Бесконтрольный рост денежной массы со стороны ЦБ Америки, Европы, Японии, Швейцарии и Англии, дефицита бюджета (пенсионные и др. обязательства), торгового баланса в ведущих экономиках, рост систематического риска на финансовых рынках
@@ -93,6 +95,9 @@
 
 <img src="images/comexholdings.png" style="background: black;" />
 
+
+<img src="images/comexholdings.png" style="background: black;" />
+
 ***
 
 
@@ -103,6 +108,9 @@
 ---
 
 <img src="images/gold-cubes-fort-knox.jpg" style="background: black;" />
+
+---
+
 
 ---
 
@@ -158,6 +166,12 @@
 
 <img src="images/onetrillion.jpg" style="background: black;height: 600px" />
 
+---
+
+### Снижение стоимости
+
+<img src="images/dollaringold.png" style="background: black;" />
+
 
 ---
 
@@ -191,6 +205,87 @@
 
 
 <img src="images/eqfairval.png" style="background: black;height: 500px" />
+
+
+***
+
+### Недвижимость?
+
+<img src="images/realestate.png" style="background: black;" />
+
+---
+
+### Индикативная стоимость жилой недвижимости к совокупному годовому доходу до налогов
+### Создание нового пузыря
+
+<img src="images/cbsbalances.jpg" style="background: black;" />
+
+
+---
+
+### Один миллиард долларов
+
+<img src="images/onebillion.jpg" style="background: black;height: 600px" />
+
+---
+
+### Один триллион долларов
+
+<img src="images/onetrillion.jpg" style="background: black;height: 600px" />
+
+
+---
+
+### Государственный долг США - двадцать триллионов долларов
+
+<img src="images/twentytrillion.jpg" style="background: black;height: 600px" />
+
+
+---
+
+### Обязательства США - сто двадцать триллионов долларов
+
+<img src="images/hundredtrillion.jpg" style="background: black;height: 600px" />
+
+
+
+***
+
+### Рынок акций?
+
+* переоцененный
+* перекупленный
+* эйфорийный настрой инвесторов
+
+<img src="images/sp500fv.png" style="background: black;height: 500px" />
+
+---
+
+### По множеству показателей выше справедливой оценки более чем на 150%
+
+
+
+<img src="images/eqfairval.png" style="background: black;height: 500px" />
+
+<img src="images/realestatepriceearnings.png" style="background: black;" />
+
+***
+
+
+### Инвестиционные инструменты
+
+* Сегрегированное золото:
+  * Золотые монеты, украшения
+  * Золотые мерные слитки
+
+* Обезличенное золото:
+  * Биржевые фонды
+  * Металлические счета
+  * Золотые сертификаты
+
+* Суррогаты:
+  * Акции золотодобывающих компаний
+  * Биржевые / внебиржевые Фьючерсы, опционы, CFD на золото
 
 
 ***
